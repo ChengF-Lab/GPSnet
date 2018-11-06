@@ -1,4 +1,4 @@
-## The data and Matlab code for paper ?A Genome-wide Positioning Systems Network Algorithm for in silico Drug Repurposing?.
+## The data and Matlab code for paper "A Genome-wide Positioning Systems Network Algorithm for in silico Drug Repurposing".
 
 
 ### Data Description (Data_mat)
