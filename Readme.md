@@ -28,10 +28,26 @@ It is the drug gene interaction. The first column of Gene_Drug is the gene ID, a
 ### Map_List:
 Map_List illustrates the drug and its ATC contents.
 
+### Gene_Drug: 
+It is the drug gene interaction. There are two parameters in this file (Gene_Drug and Drug_List). The first column of Gene_Drug is the gene ID, the second column of Gene_Drug is the Drug_ID, and the third colum of Gene_Drug is amplitude value. The corresponding drug name is in Drug_List, and there are 1309 drug in this dataset. 
+
 
 ### Code (for Matlab):
-- Run the Raw_Module_Generation.m to generate the raw module, then run Module_Treat.m to treat the raw module. The two processes are very time-consuming, and we need to save the current results in file folder Data_mat/Raw_Module_Score and Data_mat/Raw_Module. The code need to be executed on computer cluster. 
+- "Raw_Module_Generation.m" to generate the raw module. 
 
-- When accomplished these two processes, we can obtain about 60,000 raw module for each cancer type, and then run Module_Selected.m to obtain the final module for each cancer type. 
+- "Cancer_Module_Calculation.m" to obtain the final cancer module. 
 
-- Closet_Distance_Final.m is used to calculate the network proximity between the drug targets and the module gene.
+- "Module_Validation.m" to check the enrichment of the cancer module gene on several 
+
+- "Closet_Distance_ZScore.m" to calculate the network proximity between the drug targets and the cancer module gene. 
+
+- "Drug_Gene_Set_Enrichment.m" to calculate the overlap enrichment between the drug targets and the cancer module gene.
+
+### Tutorial: 
+The code has been tested on the following systems: Linux Ubuntu 16.04 and Windows 7, with Matlab R2016b installed. 
+
+Put all data in the "Data_mat/" folder first and create a "Raw_Module/" folder under "Data_mat/" folder. 
+
+Run "Raw_Module_Generation.m" , and save raw module data in the "Data_mat/Raw_Module/". There are two parameters (Module and Score) in this intermediate result , where Module represents the gene set in each raw module and Score records the seed gene, final score and module size for the corresponding raw module. For we obtain about 60,000 raw module for each cancer type in our work, and this processes is very time-consuming. Than run ‘Module_Validation.m’ to check the cancer module from GPSnet. 
+
+Run "Drug_Gene_Set_Enrichment.m" and "Closet_Distance_ZScore.m" to get the new indications for approved drugs using both gene set enrichment analysis and network proximity approaches respectively. 
